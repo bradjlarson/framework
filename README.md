@@ -64,16 +64,16 @@ extract = function extract(info, str) {
 The "add_routes" function is called everytime is a template is rendered (that function passes the element that the template is being rendered to). It then searches the HTML produced by that template, looking for any classes that start with route. It then processes the "route" classes, which compile to javascript. 
 
 For example:
-    <button class="route-click-id" id="alert_Clicked">Click Me!</button>
+```    <button class="route-click-id" id="alert_Clicked">Click Me!</button> ```
 Compiles to:
-    $('#alert_Clicked').click(function() { route['alert']('Clicked'); });
+```    $('#alert_Clicked').click(function() { route['alert']('Clicked'); }); ```
 
 This allows me to direct all events to the route function for processing, event handlers are automatically applied whenever a template is rendered, and I rarely have to actually write any event handlers. 
 
 You can also pass additional arguments to the route function, like so:
-    <input type="email" id="submit_email" value="brad.larson@capitalone.com" class="route-change-id-value">
+```    <input type="email" id="submit_email" value="brad.larson@capitalone.com" class="route-change-id-value"> ```
 which is equivalent to:
-    $('#submit_email').change(function() { route['submit']('email', $(this).prop("value")); });
+```    $('#submit_email').change(function() { route['submit']('email', $(this).prop("value")); }); ```
 
 A couple other notes:
 - I've included templates for basic bootstrap elements, which can be added by typing :Add template_name in Vim
